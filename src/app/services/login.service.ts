@@ -19,16 +19,24 @@ export class LoginService {
 
     return this.http.post<String>(this.urlApi, usuario).subscribe({
 
+    /*Pega o token após logar e o armazena no local storage para que o usuário,
+     consiga realizar as requisições que ele pode vir a fazer no sistema */
       next: (res) => {
-        console.info("--------------- JWT----------------")
-        console.info(res);
-        console.info("--------------- JWT----------------")
-        // alert("Login Realizado");
+
+        // console.info("--------------- JWT----------------");
+        var respJson = JSON.stringify(res);
+        var jwt = JSON.parse(respJson);
+        localStorage.setItem("Authorization", jwt.Authorization);
+        // console.info(jwt.Authorization);
+        // console.info("--------------- JWT----------------");
+
       },
 
       error: (error) => {
+
         alert("Deu Erro: " + error.error.text);
-        console.info(error);
+        // console.info(error);
+
       }
 
     });
