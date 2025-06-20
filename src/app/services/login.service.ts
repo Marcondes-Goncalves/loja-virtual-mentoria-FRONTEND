@@ -16,6 +16,23 @@ export class LoginService {
    }
 
    logar(usuario: usuario) {
-    return this.http.post<String>(this.urlApi, usuario);
+
+    return this.http.post<String>(this.urlApi, usuario).subscribe({
+
+      next: (res) => {
+        console.info("--------------- JWT----------------")
+        console.info(res);
+        console.info("--------------- JWT----------------")
+        alert("Login Realizado");
+      },
+
+      error: (error) => {
+        alert("Deu Erro");
+        console.info(error);
+      }
+
+    });
+
    }
+
 }
