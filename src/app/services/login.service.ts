@@ -23,11 +23,11 @@ export class LoginService {
         console.info("--------------- JWT----------------")
         console.info(res);
         console.info("--------------- JWT----------------")
-        alert("Login Realizado");
+        // alert("Login Realizado");
       },
 
       error: (error) => {
-        alert("Deu Erro");
+        alert("Deu Erro: " + error.error.text);
         console.info(error);
       }
 
