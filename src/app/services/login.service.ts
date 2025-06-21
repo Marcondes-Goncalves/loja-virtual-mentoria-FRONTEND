@@ -67,4 +67,12 @@ export class LoginService {
 
    }
 
+   usuarioLogado() {
+
+    var authorization = '' + localStorage.getItem('Authorization');
+
+    return authorization !== '' && authorization !== null && authorization !== 'null';
+
+   }
+
 }
