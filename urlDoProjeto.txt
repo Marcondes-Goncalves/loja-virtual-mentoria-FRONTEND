@@ -48,3 +48,11 @@ AO FAZER LOGIN E GERADO UM TOKEN COMO NO EXEMPLO ABAIXO
 CÓDIGO PARA CRIAR UM SERVICE PADRÃO
 
 ng generate service nome do service
+
+CÓDIGO PARA CRIAR UM INTERCEPTOR
+
+ng generate interceptor nome do interceptor
+
+CÓDIGO PARA CRIAR UM COMPONENT
+
+ng generate component nome do component
