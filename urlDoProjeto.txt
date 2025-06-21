@@ -39,7 +39,7 @@ https://www.cursojdev.projetojavaweb.com/loja_virtual_mentoria/login
   
 }
 
-A nova senha é: 577553
+A nova senha é: 7e3f39
 
 AO FAZER LOGIN E GERADO UM TOKEN COMO NO EXEMPLO ABAIXO
 

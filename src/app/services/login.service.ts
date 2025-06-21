@@ -34,8 +34,7 @@ export class LoginService {
 
       error: (error) => {
 
-        alert("Deu Erro: " + error.error.text);
-        // console.info(error);
+        alert("Erro: " + error.error.text);
 
       }
 
@@ -47,12 +46,21 @@ export class LoginService {
 
     return this.http.post<String>(environment.urlApi + 'recuperarSenha', login).subscribe({
 
+
       next: (res) => {
-        alert(JSON.stringify(res));
+
+        var respJson = JSON.stringify(res);
+        var resposta = JSON.parse(respJson);
+        alert(resposta.msg);
+
       },
 
       error: (error) => {
-        console.info("Erro ao recuperar senha: " + JSON.stringify(error));
+
+        var respJson = JSON.stringify(error);
+        var resposta = JSON.parse(respJson);
+        alert(resposta.msg);
+
       }
 
     });
