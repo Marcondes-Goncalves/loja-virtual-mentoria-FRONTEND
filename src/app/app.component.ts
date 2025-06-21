@@ -10,51 +10,11 @@ import { LoginService } from './services/login.service';
 })
 export class AppComponent {
 
-  tituloLogin = 'Login da loja virtual';
+  title = '';
 
   constructor (private fb: FormBuilder, private loginService: LoginService) {
   
   }
 
-  /*Pegar dados do formulário */
-  loginForm = this.fb.group({
-    id: [],
-    login: [null, Validators.required],
-    senha: [null, Validators.required]
-  });
-
-  /*Transformar em objeto */
-  loginObjeto(): usuario {
-    return {
-      login: this.loginForm.get('login')?.value!,
-      senha: this.loginForm.get('senha')?.value!
-    }
-  }
-
-  fazerLogin() {
-
-    const usuario = this.loginObjeto();
-
-    this.loginService.logar(usuario);
-
-    console.info('dados de login -> ' + usuario.login);
-    console.info('dados de login -> ' + usuario.senha);
-    
-  }
-
-  recuperarSenha() {
-
-    const usuario = this.loginObjeto();
-
-    var login = usuario.login;
-
-    if (login == '') {
-      alert("Informe o login para recuperar a senha")
-      return;
-    }else{
-      this.loginService.recuperarSenha(login);
-    }
-
-  }
 
 }
