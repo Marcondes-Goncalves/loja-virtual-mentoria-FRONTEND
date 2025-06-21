@@ -39,6 +39,8 @@ https://www.cursojdev.projetojavaweb.com/loja_virtual_mentoria/login
   
 }
 
+A nova senha é: 577553
+
 AO FAZER LOGIN E GERADO UM TOKEN COMO NO EXEMPLO ABAIXO
 
 {"Authorization": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJtYXJjb25kZXNnb25jYWx2ZXMxNTlAZ21haWwuY29tIiwiZXhwIjoxNzUxMTY0MDA3fQ.ky6vvk81zVvkzW42crOkysEwT4B-ZtbN3ibQ29KE0QthbtEeF4iIm7reIq8UzXTaf9pOSMI-gd9RiEASTNfvDg","username":"marcondesgoncalves159@gmail.com","id":"90","empresa":"1"}

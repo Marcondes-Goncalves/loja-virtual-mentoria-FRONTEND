@@ -8,7 +8,7 @@ import { usuario } from '../model/usuario';
 })
 export class LoginService {
 
-  private urlApi = environment.urlApi + 'login'
+  private urlApi = environment.urlApi
 
   constructor(private http: HttpClient) {
 
@@ -17,7 +17,7 @@ export class LoginService {
 
    logar(usuario: usuario) {
 
-    return this.http.post<String>(this.urlApi, usuario).subscribe({
+    return this.http.post<String>(this.urlApi + 'login', usuario).subscribe({
 
     /*Pega o token após logar e o armazena no local storage para que o usuário,
      consiga realizar as requisições que ele pode vir a fazer no sistema */
@@ -37,6 +37,22 @@ export class LoginService {
         alert("Deu Erro: " + error.error.text);
         // console.info(error);
 
+      }
+
+    });
+
+   }
+
+   recuperarSenha(login: String) {
+
+    return this.http.post<String>(environment.urlApi + 'recuperarSenha', login).subscribe({
+
+      next: (res) => {
+        alert(JSON.stringify(res));
+      },
+
+      error: (error) => {
+        console.info("Erro ao recuperar senha: " + JSON.stringify(error));
       }
 
     });
