@@ -12,11 +12,12 @@ import { LoginComponent } from './login/login/login.component';
 import { guardiaoGuard } from './guard/guardiao.guard';
 
 // canActivate PASSA O guardiaoGuard como parÂmetro que verifica se o usuário está logado para que o mesmo tenha acesso a home
+// Dentro de data passamos os tipo de usuários que tem acesso a home
 export const appRouters : Routes = [
 
   {path: 'login', component: LoginComponent},
   {path: '', component: AppComponent},
-  {path: 'home', component: HomeComponent, canActivate: [guardiaoGuard]}
+  {path: 'home', component: HomeComponent, canActivate: [guardiaoGuard], data: {role: ['ROLE_ADMIN', 'ROLE_USER', 'ROLE_FUNCIONARIO']}}
 ];
 
 export const routes = RouterModule.forRoot(appRouters);

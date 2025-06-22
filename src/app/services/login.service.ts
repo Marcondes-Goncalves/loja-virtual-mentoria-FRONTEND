@@ -24,12 +24,10 @@ export class LoginService {
      consiga realizar as requisições que ele pode vir a fazer no sistema */
       next: (res) => {
 
-        // console.info("--------------- JWT----------------");
+        // Pega o token de autorização o converte em um JSON e seta o mesmo no localStorage
         var respJson = JSON.stringify(res);
         var jwt = JSON.parse(respJson);
         localStorage.setItem("Authorization", jwt.Authorization);
-        // console.info(jwt.Authorization);
-        // console.info("--------------- JWT----------------");
 
         this.router.navigate(['home']);
 
