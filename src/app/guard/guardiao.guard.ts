@@ -1,15 +1,25 @@
 import { inject } from '@angular/core';
 import { CanActivateFn } from '@angular/router';
 import { LoginService } from '../services/login.service';
+import { environment } from 'src/environments/environments';
 
 // com o guardião verificamos se o usuário está logado para determinarmos a que rotas ele terá acesso no app.module
 export const guardiaoGuard: CanActivateFn = (route, state) => {
 
   var username = localStorage.getItem('username');
   var roles = route.data;
-  console.info('username: ' + username);
-  console.info(roles);
 
-  // console.info('Chamou o guardiao');
+  var role = JSON.parse(JSON.stringify(roles)).role.toString();
+  var authorization = '' + localStorage.getItem("Authorization");
+
+  // Faz uma requisição SINCRONA para verificar se o usuário possui os acessos necessários para acessar determinada tela
+  var request = new XMLHttpRequest();
+  request.open('GET', environment.urlApi + 'possuiAcesso/' + username + '/' + role, false);
+  request.setRequestHeader('Authorization', authorization);
+  request.send();
+  
+  var possuiAcessoRetorno = request.responseText;
+  console.info("possuiAcessoRetorno: " + possuiAcessoRetorno);
+
   return inject(LoginService).usuarioLogado();
 };
