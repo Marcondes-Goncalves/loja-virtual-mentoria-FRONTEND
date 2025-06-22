@@ -10,6 +10,7 @@ import { HomeComponent } from './home/home/home.component';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login/login/login.component';
 import { guardiaoGuard } from './guard/guardiao.guard';
+import { NavbarComponent } from './navbar/navbar.component';
 
 // canActivate PASSA O guardiaoGuard como parÂmetro que verifica se o usuário está logado para que o mesmo tenha acesso a home
 // Dentro de data passamos os tipo de usuários que tem acesso a home
@@ -26,7 +27,8 @@ export const routes = RouterModule.forRoot(appRouters);
   declarations: [
     AppComponent,
     HomeComponent,
-    LoginComponent
+    LoginComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
