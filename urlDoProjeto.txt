@@ -56,3 +56,7 @@ ng generate interceptor nome do interceptor
 CÓDIGO PARA CRIAR UM COMPONENT
 
 ng generate component nome do component
+
+CÓDIGO PARA CRIAR UM GUARDIAO
+
+ng generate guard nome do guardiao

@@ -9,12 +9,14 @@ import { InterceptorProjetoInterceptor } from './interceptor/interceptor-projeto
 import { HomeComponent } from './home/home/home.component';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login/login/login.component';
+import { guardiaoGuard } from './guard/guardiao.guard';
 
+// canActivate PASSA O guardiaoGuard como parÂmetro que verifica se o usuário está logado para que o mesmo tenha acesso a home
 export const appRouters : Routes = [
 
   {path: 'login', component: LoginComponent},
   {path: '', component: AppComponent},
-  {path: 'home', component: HomeComponent}
+  {path: 'home', component: HomeComponent, canActivate: [guardiaoGuard]}
 ];
 
 export const routes = RouterModule.forRoot(appRouters);
