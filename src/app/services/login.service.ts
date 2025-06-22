@@ -24,10 +24,11 @@ export class LoginService {
      consiga realizar as requisições que ele pode vir a fazer no sistema */
       next: (res) => {
 
-        // Pega o token de autorização o converte em um JSON e seta o mesmo no localStorage
+        // Pega o token de autorização o converte em um JSON
         var respJson = JSON.stringify(res);
         var jwt = JSON.parse(respJson);
         localStorage.setItem("Authorization", jwt.Authorization);
+        localStorage.setItem("username", jwt.username);
 
         this.router.navigate(['home']);
 
