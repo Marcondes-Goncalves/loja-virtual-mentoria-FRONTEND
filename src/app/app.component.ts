@@ -16,6 +16,11 @@ export class AppComponent implements OnInit {
   
   }
 
+  usuarioLogado() {
+
+    return this.loginService.usuarioLogado();
+  }
+
   // tudo que estiver dentro do init é executado ao iniciar o sistema
   ngOnInit(): void {
 
