@@ -1,4 +1,4 @@
-<h3>Sistema em Angular</h3>
+<h3 *ngIf="usuarioLogado()" style="text-align: center;">Área admin Loja Virtual</h3>
 
 <!-- mostrará a barra de menu se o usuário estiver logado -->
 <app-navbar *ngIf="usuarioLogado()"></app-navbar>
