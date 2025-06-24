@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environments';
 import { usuario } from '../model/usuario';
 import { Route, Router } from '@angular/router';
+import { PessoaJuridica } from '../model/pessoa-juridica';
 
 @Injectable({
   providedIn: 'root'
@@ -14,6 +15,15 @@ export class LoginService {
   constructor(private http: HttpClient, private router: Router) {
 
 
+   }
+
+   codEmpresa() {
+    return localStorage.getItem('empresa');
+   }
+
+   objetoEmpresa(): PessoaJuridica{
+
+    return new PessoaJuridica(Number(this.codEmpresa));
    }
 
    logar(usuario: usuario) {
@@ -82,6 +92,7 @@ export class LoginService {
 
     localStorage.setItem("Authorization", '');
     localStorage.setItem("username", '');
+    localStorage.setItem("empresa", '');
 
     this.router.navigate(['login']);
 

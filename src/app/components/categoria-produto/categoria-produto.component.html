@@ -2,6 +2,8 @@
 
 <form class="row g-3" [formGroup]="categoriaProdutoForm">
 
+  <input type="hidden" id="empresa" name="empresa" formControlName="empresa">
+
   <div class="col-2">
     <label for="inputAddress" class="form-label">ID:</label>
     <input type="text" class="form-control" id="id" readonly name="id" placeholder="ID" formControlName="id">
