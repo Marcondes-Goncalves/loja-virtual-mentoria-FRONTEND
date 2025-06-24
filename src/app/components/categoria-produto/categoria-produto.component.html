@@ -1,1 +1,20 @@
-<p>categoria-produto works!</p>
+<p style="text-align: center; font-weight: bold;">Cadastro de categria de produto</p>
+
+<form class="row g-3" [formGroup]="categoriaProdutoForm">
+
+  <div class="col-2">
+    <label for="inputAddress" class="form-label">ID:</label>
+    <input type="text" class="form-control" id="id" readonly name="id" placeholder="ID" formControlName="id">
+  </div>
+
+  <div class="col-10">
+    <label for="inputAddress2" class="form-label">Nome da categoria</label>
+    <input type="text" maxlength="100" class="form-control" id="nomeDesc" name="nomeDesc" required="true" placeholder="Nome..." formControlName="nomeDesc">
+    <div *ngIf="categoriaProdutoForm.get('nomeDesc')?.errors" style="font-size: 15px; color: brown;">* Descrição obrigatória</div>
+  </div>
+
+  <div class="col-12">
+    <button type="submit" class="btn btn-primary" (click)="cadProdutoCategoria()" [disabled]="!categoriaProdutoForm.valid">Salvar</button>
+  </div>
+
+</form>
