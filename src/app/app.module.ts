@@ -11,14 +11,16 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login/login/login.component';
 import { guardiaoGuard } from './guard/guardiao.guard';
 import { NavbarComponent } from './navbar/navbar.component';
+import { CategoriaProdutoComponent } from './components/categoria-produto/categoria-produto.component';
 
 // canActivate PASSA O guardiaoGuard como parÂmetro que verifica se o usuário está logado para que o mesmo tenha acesso a home
-// Dentro de data passamos os tipo de usuários que tem acesso a home
+// Dentro de data passamos os tipo de usuários que tem acesso a cada tela
 export const appRouters : Routes = [
 
   {path: 'login', component: LoginComponent},
   {path: '', component: AppComponent},
-  {path: 'home', component: HomeComponent, canActivate: [guardiaoGuard], data: {role: ['ROLE_ADMIN', 'ROLE_USER', 'ROLE_FUNCIONARIO']}}
+  {path: 'home', component: HomeComponent, canActivate: [guardiaoGuard], data: {role: ['ROLE_ADMIN', 'ROLE_USER', 'ROLE_FUNCIONARIO']}},
+  {path: 'categoria-produto', component: CategoriaProdutoComponent, canActivate: [guardiaoGuard], data: {role: ['ROLE_ADMIN', 'ROLE_USER', 'ROLE_FUNCIONARIO']}}
 ];
 
 export const routes = RouterModule.forRoot(appRouters);
@@ -28,7 +30,8 @@ export const routes = RouterModule.forRoot(appRouters);
     AppComponent,
     HomeComponent,
     LoginComponent,
-    NavbarComponent
+    NavbarComponent,
+    CategoriaProdutoComponent
   ],
   imports: [
     BrowserModule,
