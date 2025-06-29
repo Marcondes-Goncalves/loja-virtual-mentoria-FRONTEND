@@ -20,3 +20,23 @@
   </div>
 
 </form>
+
+<table class="table">
+
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Nome</th>
+      <th scope="col">ID Empresa</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let c of lista">
+      <td>{{c.id}}</td>
+      <td>{{c.nomeDesc}}</td>
+      <td>{{c.empresa?.id}}</td>
+    </tr>
+  </tbody>
+
+</table>

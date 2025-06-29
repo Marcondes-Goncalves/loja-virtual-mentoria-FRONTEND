@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { CategoriaProduto } from 'src/app/model/categoria-produto';
 import { CategoriaProdutoService } from 'src/app/services/categoria-produto.service';
@@ -9,10 +9,30 @@ import { LoginService } from 'src/app/services/login.service';
   templateUrl: './categoria-produto.component.html',
   styleUrls: ['./categoria-produto.component.css']
 })
-export class CategoriaProdutoComponent {
+export class CategoriaProdutoComponent implements OnInit {
+  
+  lista = new Array<CategoriaProduto>();
 
   constructor (private fb: FormBuilder, private categoriaProdutoService: CategoriaProdutoService, private loginService: LoginService) {
 
+  }
+
+  // executa no momento que a tela abre
+  ngOnInit(): void {
+      this.listaCategorias();
+  }
+
+  listaCategorias(): void{
+    this.categoriaProdutoService.listarCategoriaProduto().subscribe({
+
+        next: (res)=>{
+          this.lista = res;
+        },
+
+        error: (error)=>{
+          alert("ERRO: " + error);
+        }
+      })
   }
 
   categoriaProdutoForm = this.fb.group({
@@ -26,6 +46,7 @@ export class CategoriaProdutoComponent {
       id: this.categoriaProdutoForm.get('id')?.value!,
       nomeDesc: this.categoriaProdutoForm.get('nomeDesc')?.value!,
       empresa: this.categoriaProdutoForm.get('empresa')?.value!
+      // empresa: this.loginService.objetoEmpresa()
     }
   }
 
@@ -34,6 +55,10 @@ export class CategoriaProdutoComponent {
     const categoria = this.categoriaProdutoObjeto();
 
     this.categoriaProdutoService.salvarCategoriaProduto(categoria);
+
+    this.listaCategorias();
   }
+
+ 
 
 }

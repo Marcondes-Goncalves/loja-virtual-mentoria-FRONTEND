@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environments';
 import { CategoriaProduto } from '../model/categoria-produto';
+import { LoginService } from './login.service';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,7 @@ export class CategoriaProdutoService {
 
   private urlApi = environment.urlApi;
 
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(private http: HttpClient, private router: Router, private loginService: LoginService) { }
 
 
   salvarCategoriaProduto(categoriaProduto: CategoriaProduto) {
@@ -39,6 +40,10 @@ export class CategoriaProdutoService {
       }
     });
 
+  }
+
+   listarCategoriaProduto(){
+    return this.http.get<CategoriaProduto[]>(this.urlApi + 'listarCategoriaProduto/' + this.loginService.codEmpresa());
   }
 
 

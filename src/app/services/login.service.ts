@@ -23,7 +23,10 @@ export class LoginService {
 
    objetoEmpresa(): PessoaJuridica{
 
+    // var p = new PessoaJuridica();
+    // p.id = Number(this.codEmpresa());
     return new PessoaJuridica(Number(this.codEmpresa));
+    // return p;
    }
 
    logar(usuario: usuario) {
