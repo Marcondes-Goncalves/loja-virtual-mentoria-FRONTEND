@@ -28,6 +28,7 @@
       <th scope="col">ID</th>
       <th scope="col">Nome</th>
       <th scope="col">ID Empresa</th>
+      <th scope="col">Editar</th>
     </tr>
   </thead>
 
@@ -36,6 +37,7 @@
       <td>{{c.id}}</td>
       <td>{{c.nomeDesc}}</td>
       <td>{{c.empresa?.id}}</td>
+      <td><button type="button" class="btn btn-primary" (click)="editarCp(c)">Editar</button></td>
     </tr>
   </tbody>
 
